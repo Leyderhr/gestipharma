@@ -1,0 +1,17 @@
+# Base de datos PostgreSQL para desarrollo (se usará a partir del Paso 2).
+# Levantar:  docker compose up -d     Detener:  docker compose down
+services:
+  db:
+    image: postgres:17
+    container_name: pharmacy-db
+    environment:
+      POSTGRES_USER: pharmacy
+      POSTGRES_PASSWORD: pharmacy_dev
+      POSTGRES_DB: pharmacy
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
